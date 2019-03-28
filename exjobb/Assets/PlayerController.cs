@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : PhysicsObject
+public class PlayerController : MonoBehaviour
 {
-    bool crouching; 
+    private bool crouching;
+    private bool grounded = true;
+    public bool canMove = true;
+    public bool isTakingDamage = false;
+
+
+    private int numberOfStars = 0;
+    public int numberOfJumpes;
+    private int currNumJumps;
 
     public float jumpStartForce = 7f;
     public float maxSpeed = 7f;
@@ -15,6 +23,10 @@ public class PlayerController : PhysicsObject
 
     public GameObject acorn;
 
+    public float damageTime;
+    private float currDamageTime;
+
+    //private float groundDistance = 0.1f;
 
     // aim vectors 
     private Vector3 AimRight = Vector2.right;
@@ -27,6 +39,8 @@ public class PlayerController : PhysicsObject
 
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb;
+
 
     public int life = 3;
 
@@ -34,51 +48,60 @@ public class PlayerController : PhysicsObject
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+
+        currNumJumps = numberOfJumpes;
+
+        currDamageTime = damageTime;
     }
 
-    protected override void ComputeVelo()
+    private void Update()
     {
-        Vector2 move = Vector2.zero;
-
-        move.x = Input.GetAxis("Horizontal");
-
-        if (Input.GetButtonDown("Jump") && grounded)
-        {
-            velo.y = jumpStartForce;
-        }
-        else if (Input.GetButtonUp("Jump"))
-        {
-            if(velo.y > 0)
-            {
-                velo.y = velo.y * 0.5f;
-            }
-        }
-
-        if (Input.GetButton("Vertical"))
-            crouching = true; 
-        else if (Input.GetButtonUp("Vertical"))
-            crouching = false;
-
-        targetVelo = move * maxSpeed;
-
-        if(targetVelo.x > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if (targetVelo.x < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        
-        if(crouching)
-        {
-            targetVelo = Vector2.zero;
-        }
-
+        move();
         aim();
         shoot();
+        damageCooldown();
+        checkIfOnGround();
         animations();
+    }
 
+    private void move()
+    {
+        if (canMove)
+        {
+            Vector2 move = Vector2.zero;
+
+            move.x = Input.GetAxis("Horizontal");
+
+            if (currNumJumps > 0)
+            {
+                if (Input.GetButtonDown("Jump"))
+                {
+                    currNumJumps--;
+                    rb.velocity = new Vector2(rb.velocity.x, 0);
+                    rb.AddForce(new Vector2(0, jumpStartForce));
+
+                }
+                else if (Input.GetButtonUp("Jump"))
+                {
+                    if (rb.velocity.y > 0)
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+                    }
+                }
+            }
+
+            else if (Input.GetButtonUp("Jump"))
+            {
+                if (rb.velocity.y > 0)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+                }
+            }
+
+            rb.velocity = new Vector2(move.x * maxSpeed, rb.velocity.y);
+
+        }
     }
 
     private void aim()
@@ -91,14 +114,12 @@ public class PlayerController : PhysicsObject
 
     private void shoot()
     {
-        
-
         if (Input.GetMouseButtonDown(0))
         {
             GameObject Clone;
 
             aimAngle = aimAngle.normalized;
-            Clone = (Instantiate(acorn, transform.position + aimAngle.normalized, transform.rotation)) as GameObject;
+            Clone = (Instantiate(acorn, transform.position + aimAngle.normalized * 0.1f, transform.rotation)) as GameObject;
 
             Clone.GetComponent<Rigidbody2D>().velocity = new Vector2 (aimAngle.x, aimAngle.y).normalized * bulletSpeed;
         }  
@@ -108,33 +129,124 @@ public class PlayerController : PhysicsObject
     {
         if(collision.gameObject.tag == ("Enemy"))
         {
-            life--;
-            rb.AddForce(new Vector2(-velo.x, velo.y) * knockbackForce);
+            if (isTakingDamage == false)
+            {
+                canMove = false;
+                isTakingDamage = true;
+
+                life--;
+
+                rb.velocity = Vector2.zero;
+
+                if(transform.position.x < collision.transform.position.x) //kollar vilket håll man ska skjuta spelaren
+                    rb.AddForce(new Vector2(-0.5f, 0.7f) * knockbackForce);
+                else
+                    rb.AddForce(new Vector2(0.5f, 0.7f) * knockbackForce);
+
+                currDamageTime = damageTime;
+            }
         }
     }
 
-    void OnDrawGizmosSelected()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Draw a semitransparent blue cube at the transforms position
-        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        if (collision.gameObject.tag == "Star")
+        {
+            numberOfStars++;
+            //Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == ("Enemy"))
+        {
+            if (isTakingDamage == false)
+            {
+                canMove = false;
+                isTakingDamage = true;
 
-        Vector3 p = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        float angel = Vector3.Angle(transform.position.normalized, p);
+                life--;
 
-        Gizmos.DrawLine(transform.position, transform.position + AimUp);
-        Gizmos.DrawLine(transform.position, transform.position + AimRight);
-        Gizmos.DrawLine(transform.position, transform.position + AimLeftUp);
-        Gizmos.DrawLine(transform.position, transform.position + AimLeft);
-        Gizmos.DrawLine(transform.position, transform.position + AimRightUp);
+                rb.velocity = Vector2.zero;
 
-        Gizmos.DrawLine(transform.position, p);
+                if (transform.position.x < collision.transform.position.x) //kollar vilket håll man ska skjuta spelaren
+                    rb.AddForce(new Vector2(-0.5f, 0.7f) * knockbackForce);
+                else
+                    rb.AddForce(new Vector2(0.5f, 0.7f) * knockbackForce);
 
-        Gizmos.DrawSphere(p, 0.1F);
+                currDamageTime = damageTime;
+            }
+        }
+    }
+    public Vector2 getVelo()
+    {
+        return rb.velocity;
+    }
+
+    void checkIfOnGround()
+    {
+
+        float halfColider = GetComponent<BoxCollider2D>().size.x / 2 ;
+        Vector3 halfColiderVectorR = new Vector2(transform.position.x + 0.235f, transform.position.y);
+        Vector3 halfColiderVectorL = new Vector2(transform.position.x - 0.354f, transform.position.y);
+
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, -Vector2.up, 1f);
+        RaycastHit2D ray1 = Physics2D.Raycast(halfColiderVectorR, -Vector2.up, 1f);
+        RaycastHit2D ray2 = Physics2D.Raycast(halfColiderVectorL, -Vector2.up, 1f);
+
+        Debug.DrawRay(transform.position, -Vector2.up, Color.green);
+        Debug.DrawRay(halfColiderVectorR, -Vector2.up, Color.green);
+        Debug.DrawRay(halfColiderVectorL, -Vector2.up, Color.green);
+
+        if (ray.collider != null)
+        {
+            GameObject temp = ray.transform.gameObject;
+
+            if (temp.tag == "wall")
+            {
+                grounded = true;
+                currNumJumps = numberOfJumpes;
+            }
+        }
+        else if (ray1.collider != null)
+        {
+            GameObject temp = ray1.transform.gameObject;
+
+            if (temp.tag == "wall")
+            {
+                grounded = true;
+                currNumJumps = numberOfJumpes;
+            }
+        }
+        else if (ray2.collider != null)
+        {
+            GameObject temp = ray2.transform.gameObject;
+
+            if (temp.tag == "wall")
+            {
+                grounded = true;
+                currNumJumps = numberOfJumpes;
+            }
+        }
+        else
+            grounded = false;
+    }
+
+    private void damageCooldown()
+    {
+        if (isTakingDamage)
+        {
+            currDamageTime -= Time.deltaTime;
+
+            if (currDamageTime < 0)
+            {
+                canMove = true;
+                isTakingDamage = false;
+                currDamageTime = damageTime;
+            }
+        }
     }
 
     private void animations()
     {
-        if(targetVelo.x != 0) // running
+        if(rb.velocity.x != 0) // running
         {
             animator.SetBool("isRunning", true);
         }
@@ -160,6 +272,21 @@ public class PlayerController : PhysicsObject
         {
             animator.SetBool("isCroushing", false);
         }
-
+        if(isTakingDamage)
+        {
+            animator.SetBool("isHurting", true);
+        }
+        else
+        {
+            animator.SetBool("isHurting", false);
+        }
+        if (rb.velocity.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (rb.velocity.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 }

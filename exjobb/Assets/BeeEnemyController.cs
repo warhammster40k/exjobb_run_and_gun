@@ -7,6 +7,7 @@ public class BeeEnemyController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private int activePatrollPoint = 0;
+    private Animator animator;
 
     private Vector2 lastPoss;
 
@@ -15,10 +16,11 @@ public class BeeEnemyController : MonoBehaviour
     private float lerpTime = 4f;
     private float currCooldown;
 
+    
     public GameObject Carrot;
     public GameObject player; 
     public GameObject[] patrollPoints = new GameObject[0];
-    public Vector2 currPossision;
+    private Vector2 currPossision;
     public float speed = 2f;
     public float agroRange = 2f;
     public float attackCooldown = 2f; 
@@ -28,8 +30,11 @@ public class BeeEnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lerpTime = speed;
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
         currPossision = transform.position;
     }
 
@@ -106,9 +111,17 @@ public class BeeEnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == ("projectile"))
         {
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
+            rb.bodyType = RigidbodyType2D.Static;
 
+            animator.SetBool("Kill", true);
+            StartCoroutine(Destroy());
         }
+    }
+
+    private IEnumerator Destroy()
+    {
+
+        yield return new WaitForSeconds(0.33f);
+        Destroy(gameObject);
     }
 }

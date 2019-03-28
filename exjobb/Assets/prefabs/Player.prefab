@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5833644762089055731}
   - component: {fileID: 5833644762089055724}
-  - component: {fileID: 5833644762089055725}
   - component: {fileID: 5833644762089055726}
   - component: {fileID: 5833644762089055730}
   - component: {fileID: 5833644762089055729}
+  - component: {fileID: 1719788464}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f00b4747e194d43ebba76abc9ea17f57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -83,22 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &5833644762089055725
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5833644762089055727}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03, y: -0.06}
-  m_Size: {x: 0.2, y: 0.25}
-  m_Direction: 0
 --- !u!50 &5833644762089055726
 Rigidbody2D:
   serializedVersion: 4
@@ -132,11 +116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8eb1fa9551f2a429ba4a672dba3852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityModi: 1
-  minGroundNormalY: 0.65
-  chell: 0.02
   jumpStartForce: 6
   maxSpeed: 4
+  knockbackForce: 5
+  bulletSpeed: 2
+  acorn: {fileID: 0}
+  life: 3
 --- !u!95 &5833644762089055729
 Animator:
   serializedVersion: 3
@@ -156,3 +141,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &1719788464
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5833644762089055727}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.064715266, y: -0.19414544}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.8125, y: 1.8125}
+    newSize: {x: 0.9, y: 0.58}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.5886488, y: 0.7770562}
+  m_EdgeRadius: 0

@@ -31,6 +31,11 @@ public class bullet_controller : MonoBehaviour
             rb.velocity = Vector2.zero;
             killing();
         }
+
+        if (collision.gameObject.tag == ("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 

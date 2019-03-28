@@ -34,7 +34,7 @@ public class PhysicsObject : MonoBehaviour //baserad på en unity tutorial
 
     void Update()
     {
-        targetVelo = Vector2.zero;
+        //targetVelo = Vector2.zero;
         ComputeVelo();
     }
 

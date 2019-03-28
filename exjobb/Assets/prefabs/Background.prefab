@@ -95,8 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28a3ab8425081b4d8bdd50cc0b412f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followInY: 0
   player: {fileID: 0}
   offset: 14
+  nmrOfBackgrounds: 0
   scrollSpeed: 0.01
   scrollOffset: 12.09985
 --- !u!1 &5825209333702094243
@@ -206,8 +208,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5825209333575423860}
-  - {fileID: 5825209334341515975}
   - {fileID: 5825209334799620008}
+  - {fileID: 5825209334341515975}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -323,7 +325,7 @@ Transform:
   - {fileID: 5825209334632324828}
   - {fileID: 5825209333702094242}
   m_Father: {fileID: 5825209334053332617}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5825209334341515972
 SpriteRenderer:
@@ -385,8 +387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28a3ab8425081b4d8bdd50cc0b412f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followInY: 0
   player: {fileID: 0}
   offset: 14
+  nmrOfBackgrounds: 0
   scrollSpeed: 0
   scrollOffset: 10.88
 --- !u!1 &5825209334563152777
@@ -659,7 +663,7 @@ Transform:
   - {fileID: 5825209335438378786}
   - {fileID: 5825209334688985850}
   m_Father: {fileID: 5825209334053332617}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5825209334799620009
 SpriteRenderer:
@@ -721,8 +725,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28a3ab8425081b4d8bdd50cc0b412f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followInY: 0
   player: {fileID: 0}
   offset: 0
+  nmrOfBackgrounds: 0
   scrollSpeed: 0.03
   scrollOffset: 6.04
 --- !u!1 &5825209334846067302

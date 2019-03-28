@@ -24,7 +24,7 @@ public class carrotController : MonoBehaviour
     {
         
 
-        if(collision.gameObject.tag != ("Enemy"))
+        if(collision.gameObject.tag != ("Enemy") && collision.gameObject.tag != "projectile" )
         {
             rb.bodyType = RigidbodyType2D.Static;
 

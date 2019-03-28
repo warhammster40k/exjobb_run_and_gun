@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Line Brush
   m_EditorClassIdentifier: 
   m_Cells:
-  - m_Tile: {fileID: 11400000, guid: 86a78de7fab581b41b37a50d5f92447c, type: 2}
+  - m_Tile: {fileID: 11400000, guid: 1e4da34f7eabec84c9083c03ceb303cf, type: 2}
     m_Matrix:
       e00: 1
       e01: 0
@@ -36,4 +36,4 @@ MonoBehaviour:
   m_Pivot: {x: 0, y: 0, z: 0}
   lineStartActive: 0
   fillGaps: 0
-  lineStart: {x: 31, y: -15, z: 0}
+  lineStart: {x: 252, y: -17, z: 0}

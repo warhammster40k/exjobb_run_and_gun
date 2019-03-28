@@ -60,12 +60,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\apple_boss_controller.cs" />
     <Compile Include="Assets\Background_place_controller.cs" />
     <Compile Include="Assets\background_scrolling.cs" />
     <Compile Include="Assets\basket_controller.cs" />
     <Compile Include="Assets\BeeEnemyController.cs" />
+    <Compile Include="Assets\Boss_controller.cs" />
+    <Compile Include="Assets\Boss_trigger_controller.cs" />
     <Compile Include="Assets\bullet_controller.cs" />
     <Compile Include="Assets\camraController.cs" />
+    <Compile Include="Assets\carrot_boss_controller.cs" />
     <Compile Include="Assets\carrotController.cs" />
     <Compile Include="Assets\grasshopper_controller.cs" />
     <Compile Include="Assets\healthController.cs" />
@@ -141,19 +145,19 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Olle/Desktop/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Olle/Documents/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Olle/Desktop/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Olle/Documents/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Olle/Desktop/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Olle/Documents/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Olle/Desktop/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Olle/Documents/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/Olle/Desktop/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/Olle/Documents/GitHub/exjobb_run_and_gun/exjobb/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -357,13 +361,13 @@
       <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/Olle/Desktop/GitHub/exjobb_run_and_gun/exjobb/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/Olle/Documents/GitHub/exjobb_run_and_gun/exjobb/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/Olle/Desktop/GitHub/exjobb_run_and_gun/exjobb/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Olle/Documents/GitHub/exjobb_run_and_gun/exjobb/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/Olle/Desktop/GitHub/exjobb_run_and_gun/exjobb/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/Olle/Documents/GitHub/exjobb_run_and_gun/exjobb/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

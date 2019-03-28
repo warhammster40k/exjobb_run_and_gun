@@ -48,7 +48,7 @@ public class bullet_controller : MonoBehaviour
     private IEnumerator Destroy()
     {
 
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.33f);
         Destroy(gameObject);
     }
 }

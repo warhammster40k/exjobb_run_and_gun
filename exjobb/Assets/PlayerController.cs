@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public bool canMove = true;
     public bool isTakingDamage = false;
 
+    public float shootCooldown = 0.5f;
+    private float currShootCooldown;
 
     private int numberOfStars = 0;
     public int numberOfJumpes;
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         currNumJumps = numberOfJumpes;
-
+        currShootCooldown = shootCooldown;
         currDamageTime = damageTime;
     }
 
@@ -114,15 +116,22 @@ public class PlayerController : MonoBehaviour
 
     private void shoot()
     {
+        currShootCooldown -= Time.deltaTime;
+
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject Clone;
+            if (currShootCooldown < 0)
+            {
+                GameObject Clone;
 
-            aimAngle = aimAngle.normalized;
-            Clone = (Instantiate(acorn, transform.position + aimAngle.normalized * 0.1f, transform.rotation)) as GameObject;
+                aimAngle = aimAngle.normalized;
+                Clone = (Instantiate(acorn, transform.position + aimAngle.normalized * 0.1f, transform.rotation)) as GameObject;
 
-            Clone.GetComponent<Rigidbody2D>().velocity = new Vector2 (aimAngle.x, aimAngle.y).normalized * bulletSpeed;
-        }  
+                Clone.GetComponent<Rigidbody2D>().velocity = new Vector2(aimAngle.x, aimAngle.y).normalized * bulletSpeed;
+
+                currShootCooldown = shootCooldown;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

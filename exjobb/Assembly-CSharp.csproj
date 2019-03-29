@@ -77,6 +77,7 @@
     <Compile Include="Assets\PhysicsObject.cs" />
     <Compile Include="Assets\plant_controller.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\slug_controller.cs" />
     <Compile Include="Assets\star_controller.cs" />
     <Compile Include="Assets\star_system_controller.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />

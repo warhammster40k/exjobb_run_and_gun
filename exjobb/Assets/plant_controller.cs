@@ -55,10 +55,18 @@ public class plant_controller : MonoBehaviour
     void attack()
     {
 
+        GameObject Clone;
+
         if (sr.flipX == false)
-            Instantiate(TempCarrot, new Vector2(transform.position.x - 1, transform.position.y), transform.rotation);
+        {
+            Clone = Instantiate(TempCarrot, new Vector2(transform.position.x - 1, transform.position.y), transform.rotation);
+            Clone.GetComponent<SpriteRenderer>().flipX = false;
+        }
         if (sr.flipX == true)
-            Instantiate(TempCarrot, new Vector2(transform.position.x + 1, transform.position.y), transform.rotation);
+        {
+            Clone = Instantiate(TempCarrot, new Vector2(transform.position.x + 1, transform.position.y), transform.rotation);
+            Clone.GetComponent<SpriteRenderer>().flipX = true;
+        }
 
         attacking = false;
     }

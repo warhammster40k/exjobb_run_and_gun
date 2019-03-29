@@ -562,3 +562,7 @@ C:\Users\Olle\Desktop\GitHub\exjobb_run_and_gun\exjobb\Temp\bin\Debug\UnityEngin
 C:\Users\Olle\Desktop\GitHub\exjobb_run_and_gun\exjobb\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 C:\Users\Olle\Desktop\GitHub\exjobb_run_and_gun\exjobb\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
 C:\Users\Olle\Desktop\GitHub\exjobb_run_and_gun\exjobb\obj\Debug\Assembly-CSharp.csproj.CopyComplete
+C:\Users\Olle\Documents\GitHub\exjobb_run_and_gun\exjobb\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Olle\Documents\GitHub\exjobb_run_and_gun\exjobb\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\Olle\Documents\GitHub\exjobb_run_and_gun\exjobb\obj\Debug\Assembly-CSharp.dll
+C:\Users\Olle\Documents\GitHub\exjobb_run_and_gun\exjobb\obj\Debug\Assembly-CSharp.pdb

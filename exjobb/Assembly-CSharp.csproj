@@ -70,10 +70,12 @@
     <Compile Include="Assets\bullet_controller.cs" />
     <Compile Include="Assets\camraController.cs" />
     <Compile Include="Assets\carrot_boss_controller.cs" />
+    <Compile Include="Assets\carrot_plant_controller.cs" />
     <Compile Include="Assets\carrotController.cs" />
     <Compile Include="Assets\grasshopper_controller.cs" />
     <Compile Include="Assets\healthController.cs" />
     <Compile Include="Assets\PhysicsObject.cs" />
+    <Compile Include="Assets\plant_controller.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\star_controller.cs" />
     <Compile Include="Assets\star_system_controller.cs" />

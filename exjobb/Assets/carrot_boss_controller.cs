@@ -5,7 +5,7 @@ using UnityEngine;
 public class carrot_boss_controller : MonoBehaviour
 {
 
-    public float speed = 10;
+    public float speed = 120;
 
     private Rigidbody2D rb;
 
@@ -27,7 +27,7 @@ public class carrot_boss_controller : MonoBehaviour
     {
 
 
-        if (collision.gameObject.tag != ("Enemy") && collision.gameObject.tag != "projectile")
+        if (collision.gameObject.tag != ("Enemy") && collision.gameObject.tag != "projectile" && collision.gameObject.tag != "Star")
         {
             rb.bodyType = RigidbodyType2D.Static;
 

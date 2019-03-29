@@ -6,8 +6,11 @@ public class BeeEnemyController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    private int activePatrollPoint = 0;
     private Animator animator;
+    public GameObject Carrot;
+
+    private int activePatrollPoint = 0;
+  
 
     private Vector2 lastPoss;
 
@@ -17,7 +20,7 @@ public class BeeEnemyController : MonoBehaviour
     private float currCooldown;
 
     
-    public GameObject Carrot;
+    
     public GameObject player; 
     public GameObject[] patrollPoints = new GameObject[0];
     private Vector2 currPossision;

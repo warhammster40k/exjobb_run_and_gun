@@ -9,6 +9,7 @@ public class Boss_trigger_controller : MonoBehaviour
     private BoxCollider2D bc;
     public GameObject backGround;
     public GameObject oldBackGround;
+    public GameObject text;
 
     // Start is called before the first frame update
     void Start()
@@ -27,11 +28,28 @@ public class Boss_trigger_controller : MonoBehaviour
             cam.GetComponent<camraController>().enabled = false;
 
             oldBackGround.SetActive(false);
-            backGround.SetActive(true); 
+            backGround.SetActive(true);
 
-            Destroy(gameObject);
+            StartCoroutine(bossIntro());
+
+            //Destroy(gameObject);
         }
 
+
+    }
+
+    private IEnumerator bossIntro()
+    {
+        
+        Time.timeScale = 0;
+
+        text.SetActive(true); 
+        
+        yield return new WaitForSecondsRealtime(3f);
+
+        Time.timeScale = 1;
+
+        Destroy(gameObject);
 
     }
 }

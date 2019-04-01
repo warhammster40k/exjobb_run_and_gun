@@ -116,11 +116,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8eb1fa9551f2a429ba4a672dba3852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 1
+  isTakingDamage: 0
+  shootCooldown: 0.5
+  numberOfJumpes: 0
   jumpStartForce: 6
   maxSpeed: 4
   knockbackForce: 5
   bulletSpeed: 2
-  acorn: {fileID: 0}
+  acorn: {fileID: 8267128675942246027, guid: 002307ac631cadd409b79f50eebf0d83, type: 3}
+  damageTime: 0
+  invulnerableTime: 0
   life: 3
 --- !u!95 &5833644762089055729
 Animator:

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7862237955040153768}
   - component: {fileID: 7862237955040153769}
   - component: {fileID: 7862237955040153766}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: plant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -139,6 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fa385af382b974aa3a6dd441d821e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 3
   Carrot: {fileID: 1844664154, guid: 31e57da66abdf3d41b4fb9aa2756923b, type: 3}
   projectileSpeed: 120
   attackSpeed: 2
+  startShootOffsett: 2

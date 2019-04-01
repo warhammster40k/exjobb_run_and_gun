@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour
     public float damageTime;
     private float currDamageTime;
 
+    public float invulnerableTime;
+    private float currInvulnerableTime;
+
     //private float groundDistance = 0.1f;
 
     // aim vectors 
@@ -55,10 +58,13 @@ public class PlayerController : MonoBehaviour
         currNumJumps = numberOfJumpes;
         currShootCooldown = shootCooldown;
         currDamageTime = damageTime;
+        currInvulnerableTime = invulnerableTime;
     }
 
     private void Update()
     {
+        Debug.Log("Nmr jumps  " + currNumJumps);
+
         move();
         aim();
         shoot();
@@ -145,6 +151,8 @@ public class PlayerController : MonoBehaviour
 
                 life--;
 
+                //currNumJumps++;
+
                 rb.velocity = Vector2.zero;
 
                 if(transform.position.x < collision.transform.position.x) //kollar vilket håll man ska skjuta spelaren
@@ -167,9 +175,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == ("Enemy"))
         {
             if (isTakingDamage == false)
-            {
+            {                
+
                 canMove = false;
                 isTakingDamage = true;
+
+                
 
                 life--;
 
@@ -208,7 +219,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject temp = ray.transform.gameObject;
 
-            if (temp.tag == "wall")
+            if (temp.tag == "wall" || temp.tag == "Enemy")
             {
                 grounded = true;
                 currNumJumps = numberOfJumpes;
@@ -218,7 +229,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject temp = ray1.transform.gameObject;
 
-            if (temp.tag == "wall")
+            if (temp.tag == "wall" || temp.tag == "Enemy")
             {
                 grounded = true;
                 currNumJumps = numberOfJumpes;
@@ -228,7 +239,7 @@ public class PlayerController : MonoBehaviour
         {
             GameObject temp = ray2.transform.gameObject;
 
-            if (temp.tag == "wall")
+            if (temp.tag == "wall" || temp.tag == "Enemy")
             {
                 grounded = true;
                 currNumJumps = numberOfJumpes;
@@ -242,13 +253,24 @@ public class PlayerController : MonoBehaviour
     {
         if (isTakingDamage)
         {
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.3f);
+
             currDamageTime -= Time.deltaTime;
+            currInvulnerableTime -= Time.deltaTime;
 
             if (currDamageTime < 0)
             {
                 canMove = true;
-                isTakingDamage = false;
+                
                 currDamageTime = damageTime;
+
+
+            }
+            if (currInvulnerableTime < 0)
+            {
+                isTakingDamage = false;
+                spriteRenderer.color = Color.white;
+                currInvulnerableTime = invulnerableTime;
             }
         }
     }
@@ -281,7 +303,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("isCroushing", false);
         }
-        if(isTakingDamage)
+        if(!canMove)
         {
             animator.SetBool("isHurting", true);
         }

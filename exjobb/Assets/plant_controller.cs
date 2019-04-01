@@ -9,6 +9,7 @@ public class plant_controller : MonoBehaviour
     private SpriteRenderer sr;
     private Animator animator;
 
+    public int life = 3;
 
     public GameObject Carrot;
     private GameObject TempCarrot;
@@ -17,6 +18,7 @@ public class plant_controller : MonoBehaviour
     public float attackSpeed = 2F;
     private float currAttackSpeed;
 
+    public float startShootOffsett = 2f;
 
 
     // Start is called before the first frame update
@@ -24,7 +26,7 @@ public class plant_controller : MonoBehaviour
     {
         TempCarrot = Carrot; 
 
-        currAttackSpeed = attackSpeed;
+        currAttackSpeed = startShootOffsett;
 
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -71,19 +73,40 @@ public class plant_controller : MonoBehaviour
         attacking = false;
     }
 
-    void kill()
-    {
-
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == ("projectile"))
         {
+            takingDamage();
+        }
+    }
 
+    private void takingDamage()
+    {
+        life--;
+
+        sr.color = Color.red;
+
+
+
+        StartCoroutine(cooldown());
+
+        if (life <= 0)
+        {
+            sr.color = Color.white;
             animator.SetBool("Kill", true);
+            GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(Destroy());
         }
+    }
+
+    private IEnumerator cooldown()
+    {
+
+        yield return new WaitForSeconds(0.2f);
+
+        sr.color = Color.white;
     }
 
     private IEnumerator Destroy()

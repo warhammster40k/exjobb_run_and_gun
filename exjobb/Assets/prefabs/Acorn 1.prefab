@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8267128675942246031}
   - component: {fileID: 8267128675942246028}
   - component: {fileID: 8267128675942246029}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Acorn 1
   m_TagString: projectile
   m_Icon: {fileID: 0}
@@ -96,18 +96,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002465248, y: 0.0024649203}
+  m_Offset: {x: -0.00048446655, y: 0.013280153}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.14}
+    oldSize: {x: 0.5, y: 0.4375}
     newSize: {x: 0.16, y: 0.14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.102479935, y: 0.13507015}
+  m_Size: {x: 0.29322052, y: 0.3926692}
   m_EdgeRadius: 0
 --- !u!50 &8267128675942246031
 Rigidbody2D:
@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65b8d0144318f744a21d9e7689f46c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kill: 0
 --- !u!95 &8267128675942246029
 Animator:
   serializedVersion: 3

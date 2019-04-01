@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4118945547806262516}
   - component: {fileID: 995167161484090903}
   - component: {fileID: 3622725251022094131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bee_enemy (1)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -135,12 +135,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Carrot: {fileID: 5046930018902091578, guid: 6b216e9ee2a3de34894565da3b14824e, type: 3}
+  life: 3
   player: {fileID: 0}
   patrollPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  currPossision: {x: 0, y: 0}
   speed: 2
   agroRange: 2
   attackCooldown: 2

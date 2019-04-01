@@ -33,6 +33,9 @@ public class apple_boss_controller : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Static;
 
             animator.SetBool("Hitting", true);
+
+            GetComponent<BoxCollider2D>().enabled = false;
+
             StartCoroutine(Destroy());
         }
     }

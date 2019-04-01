@@ -10,7 +10,8 @@ public class BeeEnemyController : MonoBehaviour
     public GameObject Carrot;
 
     private int activePatrollPoint = 0;
-  
+
+    public int life = 3;
 
     private Vector2 lastPoss;
 
@@ -116,9 +117,34 @@ public class BeeEnemyController : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Static;
 
+            takingDamage();
+        }
+    }
+
+    private void takingDamage()
+    {
+        life--;
+
+        sr.color = Color.red;
+
+        StartCoroutine(cooldown());
+
+        if (life <= 0)
+        {
+            sr.color = Color.white;
             animator.SetBool("Kill", true);
+
+            GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(Destroy());
         }
+    }
+
+    private IEnumerator cooldown()
+    {
+
+        yield return new WaitForSeconds(0.2f);
+
+        sr.color = Color.white;
     }
 
     private IEnumerator Destroy()

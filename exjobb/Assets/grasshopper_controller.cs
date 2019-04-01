@@ -95,7 +95,7 @@ public class grasshopper_controller : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "wall")
+        if(collision.gameObject.tag == "wall" || collision.gameObject.tag == "Player")
         {
             rb.velocity = Vector2.zero;
             isAirbound = false;
@@ -106,11 +106,38 @@ public class grasshopper_controller : MonoBehaviour
     {
         if (collision.gameObject.tag == ("projectile"))
         {
+           
+
+            takingDamage();
+        }
+    }
+
+    private void takingDamage()
+    {
+        life--;
+
+        Sr.color = Color.red;
+
+        StartCoroutine(cooldown());
+
+        if (life <= 0)
+        {
+            Sr.color = Color.white;
+            animator.SetBool("Kill", true);
+
+            GetComponent<BoxCollider2D>().enabled = false;
             rb.bodyType = RigidbodyType2D.Static;
 
-            animator.SetBool("Kill", true);
             StartCoroutine(Destroy());
         }
+    }
+
+    private IEnumerator cooldown()
+    {
+
+        yield return new WaitForSeconds(0.2f);
+
+        Sr.color = Color.white;
     }
 
     private IEnumerator Destroy()

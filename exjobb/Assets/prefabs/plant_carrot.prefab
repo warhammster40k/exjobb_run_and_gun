@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1844664156}
   - component: {fileID: 1844664155}
   - component: {fileID: 5593464243458300431}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: plant_carrot
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -6,12 +6,15 @@ public class basket_controller : MonoBehaviour
 {
     public GameObject carrot;
     public float attackCooldown = 0.6f;
-    private float currAttackCooldown; 
+    private float currAttackCooldown;
+    public float startShootOffsett = 0.6f;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        currAttackCooldown = attackCooldown;
+        //currAttackCooldown = attackCooldown;
+        currAttackCooldown = startShootOffsett;
     }
 
     // Update is called once per frame

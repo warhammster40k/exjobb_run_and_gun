@@ -6,7 +6,7 @@ public class bullet_controller : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator ani;
-    public bool kill = false;
+    private bool kill = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +29,29 @@ public class bullet_controller : MonoBehaviour
         if (collision.gameObject.tag == ("wall"))
         {
             rb.velocity = Vector2.zero;
+            rb.gravityScale = 0;
             killing();
         }
 
         if (collision.gameObject.tag == ("Enemy"))
         {
-            Destroy(gameObject);
+            if (collision.gameObject.name == "slug")
+            {
+               
+
+                rb.velocity = Vector2.zero;
+                rb.gravityScale = 2.5f;
+
+                if (transform.position.x < collision.transform.position.x) 
+                    rb.AddForce(new Vector2(-0.5f, 0.7f) * 0.04f);
+                else
+                    rb.AddForce(new Vector2(0.5f, 0.7f)* 0.04f);
+            }
+            else
+            {
+                //Debug.Log("Hej");
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -47,7 +64,7 @@ public class bullet_controller : MonoBehaviour
 
     private IEnumerator Destroy()
     {
-
+        //Debug.Log("Hej");
         yield return new WaitForSeconds(0.33f);
         Destroy(gameObject);
     }

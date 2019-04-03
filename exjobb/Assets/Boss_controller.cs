@@ -41,7 +41,7 @@ public class Boss_controller : MonoBehaviour
 
             int rand = Random.Range(0, carrots.Length);
 
-            Instantiate(carrots[rand]);
+            Instantiate(carrots[rand], spawn_Carrots.transform.position, transform.rotation);
 
             currCarrotCooldown = CarrotCooldown;
         }
@@ -57,7 +57,7 @@ public class Boss_controller : MonoBehaviour
 
             int rand = Random.Range(0, apples.Length);
 
-            Instantiate(apples[rand]);
+            Instantiate(apples[rand], spawn_Apples.transform.position, transform.rotation);
 
             currAppleCooldown = AppleCooldown;
         }

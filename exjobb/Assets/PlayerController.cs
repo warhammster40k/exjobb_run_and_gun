@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Nmr jumps  " + currNumJumps);
+        //Debug.Log("Nmr jumps  " + currNumJumps);
 
         move();
         aim();
@@ -192,9 +192,21 @@ public class PlayerController : MonoBehaviour
                     rb.AddForce(new Vector2(0.5f, 0.7f) * knockbackForce);
 
                 currDamageTime = damageTime;
+
+                if(life <= 0)
+                {
+                    kill();
+                }
             }
         }
     }
+
+    public void kill()
+    {
+
+            GameObject.Find("feedback_system").GetComponent<feedback_controller>().displayFeedback();
+    }
+
     public Vector2 getVelo()
     {
         return rb.velocity;

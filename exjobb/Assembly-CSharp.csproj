@@ -72,6 +72,8 @@
     <Compile Include="Assets\carrot_boss_controller.cs" />
     <Compile Include="Assets\carrot_plant_controller.cs" />
     <Compile Include="Assets\carrotController.cs" />
+    <Compile Include="Assets\face_disply_controller.cs" />
+    <Compile Include="Assets\feedback_controller.cs" />
     <Compile Include="Assets\grasshopper_controller.cs" />
     <Compile Include="Assets\healthController.cs" />
     <Compile Include="Assets\PhysicsObject.cs" />

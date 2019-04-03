@@ -8,7 +8,9 @@ public class star_system_controller : MonoBehaviour
     public GameObject[] starslist = new GameObject[0];
     //public Sprite[] starSpriteList = new Sprite[0];
 
-    private SpriteRenderer sr; 
+    private SpriteRenderer sr;
+    private bool missedStar = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +44,24 @@ public class star_system_controller : MonoBehaviour
             if(starslist[i].GetComponent<star_controller>().getTaken())
             {
                 starUi[i].gameObject.SetActive(true);
+
+                if (i != 0)
+                {
+                    if (starslist[i - 1].GetComponent<star_controller>().getTaken())
+                    {
+                        missedStar = false;
+                    }
+                    else
+                    {
+                        missedStar = true;
+                    }
+                }
             }
         }
+    }
+
+    public bool getMissedStar()
+    {
+        return missedStar;
     }
 }

@@ -1116,11 +1116,43 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1125778003130861447, guid: 3d6703fb148decb419681b322370383b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125778004499667211, guid: 3d6703fb148decb419681b322370383b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 456
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125778003153300953, guid: 3d6703fb148decb419681b322370383b,
+        type: 3}
+      propertyPath: spawn_Apples
+      value: 
+      objectReference: {fileID: 4834724856551538790}
+    - target: {fileID: 1125778003153300953, guid: 3d6703fb148decb419681b322370383b,
+        type: 3}
+      propertyPath: spawn_Carrots
+      value: 
+      objectReference: {fileID: 4834724856848670442}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d6703fb148decb419681b322370383b, type: 3}
 --- !u!4 &4834724856542489093 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1125778003153300967, guid: 3d6703fb148decb419681b322370383b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5514646221006948322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4834724856551538790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1125778003130861444, guid: 3d6703fb148decb419681b322370383b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5514646221006948322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4834724856848670442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1125778004499667208, guid: 3d6703fb148decb419681b322370383b,
     type: 3}
   m_PrefabInstance: {fileID: 5514646221006948322}
   m_PrefabAsset: {fileID: 0}

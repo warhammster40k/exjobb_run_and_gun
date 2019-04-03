@@ -63,6 +63,7 @@
     <Compile Include="Assets\apple_boss_controller.cs" />
     <Compile Include="Assets\Background_place_controller.cs" />
     <Compile Include="Assets\background_scrolling.cs" />
+    <Compile Include="Assets\Background_y_controller.cs" />
     <Compile Include="Assets\basket_controller.cs" />
     <Compile Include="Assets\BeeEnemyController.cs" />
     <Compile Include="Assets\Boss_controller.cs" />

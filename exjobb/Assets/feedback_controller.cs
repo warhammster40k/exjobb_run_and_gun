@@ -26,7 +26,12 @@ public class feedback_controller : MonoBehaviour
     [TextArea(3, 10)]
     public string[] secounddaryFeedback_missedStars;
 
-    // Start is called before the first frame update
+    [TextArea(3, 10)]
+    public string[] secounddaryFeedback_noStars;
+
+    // Olika listor med medelanden som slumpas ut beroende på vilket state som är aktivt 
+
+
     void Start()
     {
         levelLength = endPoss.transform.position.x - startPoss.transform.position.x;       
@@ -72,7 +77,15 @@ public class feedback_controller : MonoBehaviour
 
         feedback_generell.GetComponent<TextMeshProUGUI>().text = generallFeedback[rand];
 
-        if (starSystem.GetComponent<star_system_controller>().getMissedStar() == true)
+
+
+        if (starSystem.GetComponent<star_system_controller>().getNoStartTaken() == true) // kollar om spelaren inte hittat någon stjärna 
+        {
+            rand = Random.Range(0, secounddaryFeedback_noStars.Length);
+
+            feedback_Sekundary.GetComponent<TextMeshProUGUI>().text = secounddaryFeedback_noStars[rand];
+        }        
+        else if (starSystem.GetComponent<star_system_controller>().getMissedStar() == true)
         {
             rand = Random.Range(0, secounddaryFeedback_missedStars.Length); // sekundära feedbacken med alla stjärnor 
 
@@ -83,7 +96,6 @@ public class feedback_controller : MonoBehaviour
             rand = Random.Range(0, secounddaryFeedback_allStarts.Length); // sekundära feedbacken med alla stjärnor 
 
             feedback_Sekundary.GetComponent<TextMeshProUGUI>().text = secounddaryFeedback_allStarts[rand];
-
         }
     }
     public float getProcentInleven()

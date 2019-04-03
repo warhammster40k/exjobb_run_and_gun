@@ -40,6 +40,8 @@ public class background_scrolling : MonoBehaviour
     void Update()
     {
 
+        //GetComponentInParent<Transform>().position = new Vector2(GetComponentInParent<Transform>().position.x, player.transform.position.y);
+
         midPoss = new Vector2(transform.position.x - (scrollOffset/2), transform.position.y);
 
         changePosistion = midPoss.x + offset + 6;

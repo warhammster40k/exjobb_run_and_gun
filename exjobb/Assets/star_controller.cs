@@ -5,19 +5,30 @@ using UnityEngine;
 public class star_controller : MonoBehaviour
 {
     private star_system_controller stc;
-    private bool taken = false;
+    public bool taken = false;
+    public bool found = false;
+
+    public float findRadius = 4;
+
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        stc = GetComponentInParent<star_system_controller>();
 
+        player = GameObject.Find("Player");
+        stc = GetComponentInParent<star_system_controller>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Vector2.Distance(player.transform.position, transform.position) < findRadius)
+        {
+            found = true;
+            stc.StarTaken();
+        } 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,5 +46,10 @@ public class star_controller : MonoBehaviour
     public bool getTaken()
     {
         return taken;
+    }
+
+    public bool getFound()
+    {
+        return found;
     }
 }

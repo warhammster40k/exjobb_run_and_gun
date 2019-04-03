@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242376706462041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.32, y: -3.67, z: 0.1748624}
+  m_LocalPosition: {x: 37.18, y: -4.9799995, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -139,6 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4
 --- !u!1 &6368242377234044592
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242377234044592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.430013, y: 0.7468419, z: 0.1748624}
+  m_LocalPosition: {x: -23.39, y: -4.9799995, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -278,6 +281,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4
 --- !u!1 &6368242377244254792
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +297,7 @@ GameObject:
   - component: {fileID: 6368242377244254799}
   m_Layer: 0
   m_Name: 'star-system '
-  m_TagString: Untagged
+  m_TagString: Star
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,7 +436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242377270946945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.13, y: 2.75, z: 0.1748624}
+  m_LocalPosition: {x: -15.46, y: -4.9799995, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -541,6 +547,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4
 --- !u!1 &6368242377425845543
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,7 +578,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242377425845543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.34, y: -1.96, z: 0.1748624}
+  m_LocalPosition: {x: 48.8, y: -4.9799995, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -680,6 +689,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4
 --- !u!1 &6368242377522730244
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +720,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242377522730244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 1.13, z: 0.1748624}
+  m_LocalPosition: {x: -6.23, y: -4.9799995, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -819,6 +831,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4
 --- !u!1 &6368242377620470615
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242377620470615}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: 1.29, z: 0.1748624}
+  m_LocalPosition: {x: 10.37, y: -4.9799995, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -958,6 +973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4
 --- !u!1 &6368242378064112909
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +1004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242378064112909}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.09, y: 2.69, z: 0.1748624}
+  m_LocalPosition: {x: 1.48, y: -4.9799995, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -1097,6 +1115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4
 --- !u!1 &6368242378079286187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242378079286187}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.11, y: 0.86, z: 0.1748624}
+  m_LocalPosition: {x: 60.85, y: -4.9799995, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -1236,6 +1257,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4
 --- !u!1 &6368242378436002344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242378436002344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.4, y: -0.97, z: 0.1748624}
+  m_LocalPosition: {x: 28.42, y: -4.9799995, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -1375,6 +1399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4
 --- !u!1 &6368242378607984244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,7 +1430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368242378607984244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.12, y: 2.11, z: 0.1748624}
+  m_LocalPosition: {x: 20.11, y: -4.98, z: 0.1748624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6368242377244254797}
@@ -1514,3 +1541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3025caae264cbf44b939d6eeedcc5c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taken: 0
+  found: 0
+  findRadius: 4

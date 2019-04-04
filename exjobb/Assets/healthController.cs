@@ -35,7 +35,13 @@ public class healthController : MonoBehaviour
             image.sprite = sprites[2];
         else if (life == 3)
             image.sprite = sprites[3];
+        else if (life == 4)
+            image.sprite = sprites[4];
+        else if (life == 5)
+            image.sprite = sprites[5];
+        else if (life == 6)
+            image.sprite = sprites[6];
         else
-            image.sprite = sprites[3];
+            image.sprite = sprites[7];
     }
 }

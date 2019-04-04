@@ -80,6 +80,7 @@
     <Compile Include="Assets\PhysicsObject.cs" />
     <Compile Include="Assets\plant_controller.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\sceen_controller.cs" />
     <Compile Include="Assets\slug_controller.cs" />
     <Compile Include="Assets\star_controller.cs" />
     <Compile Include="Assets\star_system_controller.cs" />

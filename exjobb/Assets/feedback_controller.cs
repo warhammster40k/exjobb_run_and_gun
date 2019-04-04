@@ -13,6 +13,10 @@ public class feedback_controller : MonoBehaviour
     public GameObject feedback_generell;
     public GameObject feedback_Sekundary;
 
+    public GameObject Button_tryAgain;
+    public GameObject Button_close;
+    public GameObject Gameover;
+
 
     private float levelLength;
     private float ProcentInleven;
@@ -28,6 +32,9 @@ public class feedback_controller : MonoBehaviour
 
     [TextArea(3, 10)]
     public string[] secounddaryFeedback_noStars;
+
+    [TextArea(3, 10)]
+    public string MiddleFeedback;
 
     // Olika listor med medelanden som slumpas ut beroende på vilket state som är aktivt 
 
@@ -98,8 +105,63 @@ public class feedback_controller : MonoBehaviour
             feedback_Sekundary.GetComponent<TextMeshProUGUI>().text = secounddaryFeedback_allStarts[rand];
         }
     }
+
     public float getProcentInleven()
     {
         return ProcentInleven;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+
+            Time.timeScale = 0;
+
+            int rand;
+            Random random = new Random();
+
+            canvas.SetActive(true);
+
+            Gameover.SetActive(false);
+            Button_tryAgain.SetActive(false);
+
+            Button_close.SetActive(true);
+
+            feedback_generell.GetComponent<TextMeshProUGUI>().text = MiddleFeedback;
+
+            if (starSystem.GetComponent<star_system_controller>().getNoStartTaken() == true) // kollar om spelaren inte hittat någon stjärna 
+            {
+                rand = Random.Range(0, secounddaryFeedback_noStars.Length);
+
+                feedback_Sekundary.GetComponent<TextMeshProUGUI>().text = secounddaryFeedback_noStars[rand];
+            }
+            else if (starSystem.GetComponent<star_system_controller>().getMissedStar() == true)
+            {
+                rand = Random.Range(0, secounddaryFeedback_missedStars.Length); // sekundära feedbacken med alla stjärnor 
+
+                feedback_Sekundary.GetComponent<TextMeshProUGUI>().text = secounddaryFeedback_missedStars[rand];
+            }
+            else
+            {
+                rand = Random.Range(0, secounddaryFeedback_allStarts.Length); // sekundära feedbacken med alla stjärnor 
+
+                feedback_Sekundary.GetComponent<TextMeshProUGUI>().text = secounddaryFeedback_allStarts[rand];
+            }
+        }
+    }
+
+    public void pressCloseButton()
+    {
+
+        Gameover.SetActive(true);
+        Button_tryAgain.SetActive(true);
+
+        Button_close.SetActive(false);
+
+        canvas.SetActive(false);
+
+        Time.timeScale = 1;
     }
 }

@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
 
-    public int life = 3;
+    public int life = 6;
 
     void Start()
     {
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log("Nmr jumps  " + currNumJumps);
+        Debug.Log("life " + life);
 
         move();
         aim();

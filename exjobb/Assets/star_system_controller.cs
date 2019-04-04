@@ -63,8 +63,8 @@ public class star_system_controller : MonoBehaviour
             if (starslist[i].GetComponent<star_controller>().getFound() == true && starslist[i].GetComponent<star_controller>().getTaken() == false)
             {
                 //kollar om man har hittat stjärnan men att den inte är tagen 
-                Debug.Log(i);
-                Debug.Log("Hej");
+               // Debug.Log(i);
+               // Debug.Log("Hej");
 
 
                 if (i != 0)

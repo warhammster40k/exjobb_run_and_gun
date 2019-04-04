@@ -13,7 +13,7 @@ public class slug_controller : MonoBehaviour
 
     public float speed; 
 
-    private float dirr = -1;
+    public float dirr = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -45,8 +45,13 @@ public class slug_controller : MonoBehaviour
     {
         if (transform.position.x < left.transform.position.x || transform.position.x > right.transform.position.x)
         {
-            //Debug.Log("Flipping");
+            if (dirr < 0)
+                transform.position = new Vector2(transform.position.x + 0.1f, transform.position.y);
+            else
+                transform.position = new Vector2(transform.position.x - 0.1f, transform.position.y);
+
             dirr *= -1;
+
             rb.velocity = Vector2.zero;
         }
     }

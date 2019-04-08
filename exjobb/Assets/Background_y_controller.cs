@@ -7,6 +7,7 @@ public class Background_y_controller : MonoBehaviour
     private GameObject player; 
 
     public float speed = 1f;
+    public float offset = 10; 
 
     private float startTime;
     private float journeyLength;
@@ -22,7 +23,7 @@ public class Background_y_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 destination = new Vector2(transform.position.x, player.transform.position.y);
+        Vector2 destination = new Vector2(transform.position.x, player.transform.position.y + offset);
 
         Vector2 StartPoss = transform.position;
 

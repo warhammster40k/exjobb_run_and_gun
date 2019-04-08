@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("life " + life);
+        //Debug.Log("life " + life);
 
         move();
         aim();
@@ -177,15 +177,20 @@ public class PlayerController : MonoBehaviour
             numberOfStars++;
             //Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.tag == "Apple")
+        {
+            GameObject.Find("Point_controller").GetComponent<Point_controller>().addPoints(100);
+
+            collision.gameObject.SetActive(false);
+        }
+
         if (collision.gameObject.tag == ("Enemy"))
         {
             if (isTakingDamage == false)
             {                
-
                 canMove = false;
                 isTakingDamage = true;
-
-                
 
                 life--;
 

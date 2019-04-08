@@ -19,13 +19,6 @@ public class camraController : MonoBehaviour
         offset = new Vector3(0,0,-1f);
         transform.position = player.transform.position + offset;
     }
-
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        //transform.position = player.transform.position + offset;
-
-    }
     void OnDrawGizmosSelected()
     {
         // Draw a semitransparent blue cube at the transforms position
@@ -33,7 +26,7 @@ public class camraController : MonoBehaviour
         Gizmos.DrawCube(transform.position, new Vector3(3, 3, 3));
     }
 
-    private void Update()
+    void LateUpdate()
     {
        
 
